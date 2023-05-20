@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#SBATCH --job-name='boosted'
+#SBATCH --job-name='baseline'
 #SBATCH --partition=teaching
 #SBATCH --nodes=1
 #SBATCH --gpus=4
@@ -13,7 +13,7 @@
 source /usr/local/anaconda3/bin/activate keras-frcnn
 
 # command
-python3 train_frcnn.py --network vgg -o simple -p boosted-annotations-2.csv --elen 360 --hf false
+python3 train_frcnn.py --network vgg -o simple -p annotations-no-sig.csv --elen 360 --hf false
 
 # deactivate env
 conda deactivate
