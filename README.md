@@ -1,3 +1,25 @@
+# Stamp Detecton FRCNN Model
+CS3310 - Spring '23 - E-Plan Exam Project 2 Team
+
+This repo was forked from [an existing one by kentaroy](https://github.com/kentaroy47/frcnn-from-scratch-with-keras). The original README is left intact after this section.
+
+
+We largely used Kentaroy's originally implementation with only a few changes:
+- The addition of sbatch training scripts to work with the SLURM scheduler on Rosie
+    - `baseline-train.sh`
+        - Sets up the training for our baseline stamp detection experiment
+    - `boosted-train.sh`
+        - Sets up the training for our boosted stamp detection experiment
+    - `test.sh`
+        - Evaluation script, causes the model to write its predictions on the testing set to the `results/` directory for manual evaluation
+    - `train-rpn.sh`
+        - Training script for the RPN separate from the classifier
+
+Kentaroy's original README references a requirements.txt, but at least on the ROSIE cluster this requirements is not satisfiable because it relies on package versions which only work with a lower version of Python than that supported by Python3.7.6 (Python3.6). In order to get Python3.6 working on Rosie we used a conda environment which allows setting the language version. In that case, please use the `environment.yml`.
+
+Please reference [these instructions](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#creating-an-environment-from-an-environment-yml-file) for getting started with conda environments.
+---
+
 ![image](https://github.com/kentaroy47/frcnn-from-scratch-with-keras/blob/master/images/85.png)
 # What is this repo?
 - **Simple faster-RCNN codes in Keras!**
@@ -11,12 +33,6 @@
 - **VGG support!**
 
 - added eval for pascal_voc :)
-
-Stars and forks are appreciated if this repo helps your project, will motivate me to support this repo. 
-
-PR and issues will help too!
-
-Thanks :)
 
 ## Frameworks
 Tested with Tensorflow==1.12.0 and Keras 2.2.4.
